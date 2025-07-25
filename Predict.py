@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
     #Завантаження Random Forest моделі
     print("Завантаження Random Forest моделі...")
-    rf_model = joblib.load("model_rf.pkl")  # переконайся, що зберігав через joblib.dump
+    rf_model = joblib.load("model_rf.pkl")
 
     #Запуск
     predict_realtime_rf(yamnet_model, rf_model)
