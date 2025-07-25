@@ -45,7 +45,7 @@ def predict_realtime_rf(
                 pred_class = rf_model.predict(mean_embedding)[0]
                 prob = rf_model.predict_proba(mean_embedding)[0][pred_class]
 
-                print(f"➡️ {class_names[pred_class]} (ймовірність: {prob:.2f})")
+                print(f" {class_names[pred_class]} (ймовірність: {prob:.2f})")
 
     except KeyboardInterrupt:
         print("\n Зупинено користувачем.")
