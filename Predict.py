@@ -42,10 +42,10 @@ def predict_realtime_rf(
                 _, embeddings, _ = yamnet_model(segment_tensor)
                 mean_embedding = tf.reduce_mean(embeddings, axis=0).numpy().reshape(1, -1)
 
-                pred_class = rf_model.predict(mean_embedding)[0]
-                prob = rf_model.predict_proba(mean_embedding)[0][pred_class]
+                proba = rf_model.predict_proba(mean_embedding)[0][1]  
+                pred_class = 1 if proba > 0.5 else 0
 
-                print(f" {class_names[pred_class]} (ймовірність: {prob:.2f})")
+                print(f" {class_names[pred_class]} (ймовірність: {proba:.2f})")
 
     except KeyboardInterrupt:
         print("\n Зупинено користувачем.")
